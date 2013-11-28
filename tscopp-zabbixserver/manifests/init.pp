@@ -6,33 +6,24 @@
 #
 # Document parameters here.
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if it
-#   has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Nod
-#
-# === Examples
-#
 #  class { zabbixserver:
-
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ]
+#    db_host         => 'localhost'
+#    db_port         => '0'
+#    db_name         => 'zabbix'
+#    db_password     => 'changeme'
+#    zabbix_host     => $fqdn
+#    node_type       => 'server'
+#    zabbix_port     => '10051'
+#    zabbix_node_num => '0'
 #  }
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Author Name <tms@eecs.berkeley.edu>
 #
 # === Copyright
 #
-# Copyright 2013 Your name here, unless otherwise noted.
+# Copyright 2013 Tim Scoppetta, unless otherwise noted.
 #
 
 class zabbixserver(
