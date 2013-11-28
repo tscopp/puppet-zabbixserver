@@ -1,16 +1,19 @@
 zabbixserver
 
-This is the zabbixserver module.
+This is the zabbixserver module. It creates a zabbixserver. Eventually it will create proxies and agents too.
 
 License
 -------
 
+www.mozilla.org/MPL/2.0/
 
 Contact
 -------
 
+Tim Scoppetta
+tms@eecs.berkeley.edu
 
 Support
 -------
 
-Please log tickets and issues at our [Projects site](http://projects.example.com)
+If you don't like it, fix it. If you're lazy tell me about it here: https://github.com/tscopp/puppet-zabbixserver/issues
