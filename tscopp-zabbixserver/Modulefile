@@ -8,7 +8,7 @@ description 'Module to install zabbixserver'
 project_page 'https://github.com/tscopp/puppet-zabbixserver'
 
 ## Add dependencies, if any:
-dependency  'puppetlabs/apt',   '>= 1.4.0'
-dependency  'puppetlabs/mysql', '>= 2.1.0'
-dependency  'nodes/php',        '>= 0.7.0'
-dependency  'puppetlabs/apache' '>= 0.9.0'
+dependency  'puppetlabs/apt',    '>= 1.4.0'
+dependency  'puppetlabs/mysql',  '>= 2.1.0'
+dependency  'nodes/php',         '>= 0.7.0'
+dependency  'puppetlabs/apache', '>= 0.9.0'
