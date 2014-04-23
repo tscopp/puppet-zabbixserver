@@ -10,7 +10,7 @@ Usage
 -------------------
 After installing the module (either from here or the puppet forge) simply add the following to the desired node definition:
 
-```
+```puppet
 class {zabbixserver:
   db_host         => 'localhost
   db_port         => '0'
