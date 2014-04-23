@@ -9,17 +9,17 @@ I needed a good module to install zabbix server's repeatedly and consistently. I
 Usage
 -------------------
 After installing the module (either from here or the puppet forge) simply add the following to the desired node definition:
-
-class {zabbixserver:
-  db_host         => 'localhost
-  db_port         => '0'
-  db_name         => 'zabbix'
-  db_password     => 'changeme'
-  zabbix_host     => 'zabbix.school.edu'
-  node_type       => 'server'
-  zabbix_port     => '10051'
-  zabbix_node_num => '0'
-}
+<br /> <br />
+class {zabbixserver: <br />
+  db_host         => 'localhost <br />
+  db_port         => '0' <br />
+  db_name         => 'zabbix' <br />
+  db_password     => 'changeme' <br />
+  zabbix_host     => 'zabbix.school.edu' <br />
+  node_type       => 'server' <br />
+  zabbix_port     => '10051' <br />
+  zabbix_node_num => '0'<br />
+}<br /> <br />
 
 Problems?
 -------------------
