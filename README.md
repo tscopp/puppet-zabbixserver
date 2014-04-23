@@ -1,15 +1,26 @@
 puppet-zabbixserver
 ===================
 
-Once upon a time...
+Once upon a time
 -------------------
 
-I needed a good module to install zabbixserver. I could not find one and this is the one I was in the process of writing. Or am in the process of writing I suppose
+I needed a good module to install zabbix server's repeatedly and consistently. I could not find one so I wrote one. 
 
-But it doensn't work...
+Usage
 -------------------
-I know, I'm working on it.
+After installing the module (either from here or the puppet forge) simply add the following to the desired node definition:
 
-But it isn't properly tested...
+class {zabbixserver:
+  db_host         => 'localhost
+  db_port         => '0'
+  db_name         => 'zabbix'
+  db_password     => 'changeme'
+  zabbix_host     => 'zabbix.school.edu'
+  node_type       => 'server'
+  zabbix_port     => '10051'
+  zabbix_node_num => '0'
+}
+
+Problems?
 -------------------
-See the answer the previous question...
+Submit a bug on here or contact me directly at tms@eecs.berkeley.edu.
