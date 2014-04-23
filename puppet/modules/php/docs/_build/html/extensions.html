@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Extensions &mdash; puppet-php</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="puppet-php" href="index.html"/>
+        <link rel="next" title="Composer" href="composer.html"/>
+        <link rel="prev" title="SAPI" href="sapi.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="contents.html" class="fa fa-home"> puppet-php</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#why-use-puppet-php">Why Use puppet-php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#bugs">Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#support-questions">Support / Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#puppet-module">puppet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#using-git-submodule">Using git submodule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#class-dependencies">Class dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quick-start.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#simple-install">Simple install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick-start.html#advanced-install">Advanced install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#php-config">php::config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#php-fpm-config">php::fpm::config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#php-apache-config">php::apache::config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#php-cli-config">php::cli::config</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sapi.html">SAPI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sapi.html#common-arguments">Common arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sapi.html#php-apache">php::apache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sapi.html#php-fpm">php::fpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sapi.html#php-cli">php::cli</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#common-arguments">Common arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apc">apc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apcu">apcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#curl">curl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gd">gd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gearman">gearman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#http">http</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#igbinary">igbinary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imagick">imagick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imap">imap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#intl">intl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ldap">ldap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mcrypt">mcrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memcache">memcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memcached">memcached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mysql">mysql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#newrelic">newrelic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#opcache">opcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pgsql">pgsql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redis">redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ssh2">ssh2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#uploadprogess">uploadprogess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xcache">xcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#xdebug">xdebug</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="composer.html">Composer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="composer.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composer.html#auto-update">Auto update</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="phpunit.html">phpunit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="phpunit.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#generic-cli">Generic / CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#fpm">FPM</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="contents.html">puppet-php</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="contents.html">Docs</a> &raquo;</li>
+      
+    <li>Extensions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/extensions.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="extensions">
+<h1>Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="common-arguments">
+<h2>Common arguments<a class="headerlink" href="#common-arguments" title="Permalink to this headline">¶</a></h2>
+<p>These arguments are available for all extensions, though their defaults may be
+different across SAPIs.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$ensure</span></tt> defaults to <tt class="docutils literal"><span class="pre">installed</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> default depends on extension.</li>
+<li><tt class="docutils literal"><span class="pre">$provider`</span></tt> default depends on extension.</li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> default depends on extension.</li>
+<li><tt class="docutils literal"><span class="pre">$settings</span></tt> defaults to <tt class="docutils literal"><span class="pre">[</span> <span class="pre">]</span></tt> (empty array).</li>
+</ul>
+</div>
+<div class="section" id="apc">
+<h2>apc<a class="headerlink" href="#apc" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::apc</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php-apc</span></tt> for Squeeze, Wheezy, Lucid, Precise, Quantal and Raring. Other OS versions will default to <tt class="docutils literal"><span class="pre">php5-apcu</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/apc.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="apcu">
+<h2>apcu<a class="headerlink" href="#apcu" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::apcu</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-apcu</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/apcu.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="curl">
+<h2>curl<a class="headerlink" href="#curl" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::curl</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-curl</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/curl.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="gd">
+<h2>gd<a class="headerlink" href="#gd" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::gd</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-curl</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/gd.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="gearman">
+<h2>gearman<a class="headerlink" href="#gearman" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::gearman</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-gearman</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/gearman.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="http">
+<h2>http<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::http</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-http</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/http.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="igbinary">
+<h2>igbinary<a class="headerlink" href="#igbinary" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The package requires the <tt class="docutils literal"><span class="pre">build-essential</span></tt> and <tt class="docutils literal"><span class="pre">php5-dev</span></tt> system packages.</p>
+</div>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::igbinary</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">igbinary</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$provider</span></tt> defaults to <tt class="docutils literal"><span class="pre">pecl</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/igbinary.ini</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$settings</span></tt> defaults to <tt class="docutils literal"><span class="pre">['set</span> <span class="pre">&quot;.anon/extension&quot;</span> <span class="pre">&quot;igbinary.so&quot;']</span></tt></li>
+</ul>
+</div>
+<div class="section" id="imagick">
+<h2>imagick<a class="headerlink" href="#imagick" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::imagick</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-imagick</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/imagick.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="imap">
+<h2>imap<a class="headerlink" href="#imap" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::imap</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-imap</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/imap.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="intl">
+<h2>intl<a class="headerlink" href="#intl" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::intl</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-intl</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/intl.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="ldap">
+<h2>ldap<a class="headerlink" href="#ldap" title="Permalink to this headline">¶</a></h2>
+<p>FIX ME</p>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::ldap</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-ldap</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/ldap.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="mcrypt">
+<h2>mcrypt<a class="headerlink" href="#mcrypt" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::mcrypt</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-mcrypt</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/mcrypt.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="memcache">
+<h2>memcache<a class="headerlink" href="#memcache" title="Permalink to this headline">¶</a></h2>
+<p>FIX ME</p>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::memcache</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-memcache</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/memcache.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="memcached">
+<h2>memcached<a class="headerlink" href="#memcached" title="Permalink to this headline">¶</a></h2>
+<p>FIX ME</p>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::memcached</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-memcached</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/memcached.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="mysql">
+<h2>mysql<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::mysql</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-mysql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/mysql.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="newrelic">
+<h2>newrelic<a class="headerlink" href="#newrelic" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This extension requires the NewRelic PHP apt repository to be added beforehand.</p>
+</div>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::newrelic</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-newrelic</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/newrelic.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="opcache">
+<h2>opcache<a class="headerlink" href="#opcache" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::opcache</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">undef</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/opcache.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="pgsql">
+<h2>pgsql<a class="headerlink" href="#pgsql" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::pgsql</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-pgsql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/pgsql.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="redis">
+<h2>redis<a class="headerlink" href="#redis" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::redis</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-redis</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/redis.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="ssh2">
+<h2>ssh2<a class="headerlink" href="#ssh2" title="Permalink to this headline">¶</a></h2>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::ssh2</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-ssh2</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/ssh2.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="uploadprogess">
+<h2>uploadprogess<a class="headerlink" href="#uploadprogess" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The package requires the <tt class="docutils literal"><span class="pre">build-essential</span></tt> and <tt class="docutils literal"><span class="pre">php5-dev</span></tt> system packages.</p>
+</div>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::uploadprogess</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">uploadprogess</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$provider</span></tt> defaults to <tt class="docutils literal"><span class="pre">pecl</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/uploadprogess.ini</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$settings</span></tt> defaults to <tt class="docutils literal"><span class="pre">['set</span> <span class="pre">&quot;.anon/extension&quot;</span> <span class="pre">&quot;uploadprogess.so&quot;']</span></tt></li>
+</ul>
+</div>
+<div class="section" id="xcache">
+<h2>xcache<a class="headerlink" href="#xcache" title="Permalink to this headline">¶</a></h2>
+<p>FIX ME</p>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::xcache</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-xcache</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/xcache.ini</span></tt></li>
+</ul>
+</div>
+<div class="section" id="xdebug">
+<h2>xdebug<a class="headerlink" href="#xdebug" title="Permalink to this headline">¶</a></h2>
+<p>FIX ME</p>
+<p>Class name: <tt class="docutils literal"><span class="pre">php::extension::xdebug</span></tt>.</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$package</span></tt> defaults to <tt class="docutils literal"><span class="pre">php5-xdebug</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$installdir</span></tt> defaults to <tt class="docutils literal"><span class="pre">/usr/lib/php5/20121212</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$inifile</span></tt> defaults to <tt class="docutils literal"><span class="pre">${php::params::config_root_ini}/xdebug.ini</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">$settings</span></tt> defaults to <tt class="docutils literal"><span class="pre">[&quot;set</span> <span class="pre">.anon/zend_extension</span> <span class="pre">'${install_dir}/xdebug.so'&quot;]</span></tt></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="composer.html" class="btn btn-neutral float-right" title="Composer"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sapi.html" class="btn btn-neutral" title="SAPI"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christian Winther.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick Start &mdash; puppet-php</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="puppet-php" href="index.html"/>
+        <link rel="next" title="Configuration" href="configuration.html"/>
+        <link rel="prev" title="Installation" href="installation.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="contents.html" class="fa fa-home"> puppet-php</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#why-use-puppet-php">Why Use puppet-php</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#bugs">Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#support-questions">Support / Questions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#puppet-module">puppet module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#using-git-submodule">Using git submodule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#class-dependencies">Class dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simple-install">Simple install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-install">Advanced install</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#php-config">php::config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#php-fpm-config">php::fpm::config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#php-apache-config">php::apache::config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html#php-cli-config">php::cli::config</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sapi.html">SAPI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sapi.html#common-arguments">Common arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sapi.html#php-apache">php::apache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sapi.html#php-fpm">php::fpm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sapi.html#php-cli">php::cli</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#common-arguments">Common arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#apc">apc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#apcu">apcu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#curl">curl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#gd">gd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#gearman">gearman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#http">http</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#igbinary">igbinary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#imagick">imagick</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#imap">imap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#intl">intl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#ldap">ldap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#mcrypt">mcrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#memcache">memcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#memcached">memcached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#mysql">mysql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#newrelic">newrelic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#opcache">opcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#pgsql">pgsql</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#redis">redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#ssh2">ssh2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#uploadprogess">uploadprogess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#xcache">xcache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html#xdebug">xdebug</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="composer.html">Composer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="composer.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="composer.html#auto-update">Auto update</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="phpunit.html">phpunit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="phpunit.html#installation">Installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#generic-cli">Generic / CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#fpm">FPM</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="contents.html">puppet-php</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="contents.html">Docs</a> &raquo;</li>
+      
+    <li>Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/quick-start.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>You are busy, and you just want to <tt class="docutils literal"><span class="pre">get</span> <span class="pre">things</span> <span class="pre">done™</span></tt>, so let&#8217;s get going.</p>
+<p>After <a class="reference internal" href="installation.html"><em>installation</em></a>, you are ready to roll.</p>
+<div class="section" id="simple-install">
+<h2>Simple install<a class="headerlink" href="#simple-install" title="Permalink to this headline">¶</a></h2>
+<p>Install PHP-FPM, PHP CLI and the APC extension.</p>
+<div class="highlight-puppet"><div class="highlight"><pre><span class="k">include</span> <span class="na">php</span>
+
+<span class="k">class</span> <span class="p">{</span> <span class="p">[</span><span class="s">&#39;php::fpm&#39;</span><span class="p">,</span> <span class="s">&#39;php::cli&#39;</span><span class="p">,</span> <span class="s">&#39;php::extension::apc&#39;</span><span class="p">]:</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="advanced-install">
+<h2>Advanced install<a class="headerlink" href="#advanced-install" title="Permalink to this headline">¶</a></h2>
+<p>Install PHP-FPM, PHP CLI and the APC extension with custom configuration.</p>
+<div class="highlight-puppet"><div class="highlight"><pre><span class="k">include</span> <span class="na">php</span>
+
+<span class="k">class</span> <span class="p">{</span> <span class="p">[</span><span class="s">&#39;php::fpm&#39;</span><span class="p">,</span> <span class="s">&#39;php::cli&#39;</span><span class="p">]:</span>
+
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="p">{</span> <span class="s">&#39;php::extension::apc&#39;</span><span class="p">:</span>
+  <span class="na">settings</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="c"></span>
+<span class="c">    # Augeas commands, one command per array entry</span>
+    <span class="s">&#39;set .anon/apc.enabled&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="Configuration"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Christian Winther.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
