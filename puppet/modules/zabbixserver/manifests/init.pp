@@ -7,14 +7,15 @@
 # Document parameters here.
 #
 #  class { zabbixserver:
-#    db_host         => 'localhost'
-#    db_port         => '0'
-#    db_name         => 'zabbix'
-#    db_password     => 'changeme'
-#    zabbix_host     => $fqdn
-#    node_type       => 'server'
-#    zabbix_port     => '10051'
-#    zabbix_node_num => '0'
+#    db_host          => 'localhost'
+#    db_port          => '0'
+#    db_name          => 'zabbix'
+#    db_password      => 'changeme'
+#    db_root_password => 'strongpassword',
+#    zabbix_host      => $fqdn
+#    node_type        => 'server'
+#    zabbix_port      => '10051'
+#    zabbix_node_num  => '0'
 #  }
 #
 # === Authors
@@ -27,15 +28,16 @@
 #
 
 class zabbixserver(
-  $db_host         = 'localhost',
-  $db_port         = '0',
-  $db_name         = 'zabbix',
-  $db_user         = 'zabbix',
-  $db_password     = 'changeme',
-  $zabbix_host     = $::fqdn,
-  $node_type       = 'server',
-  $zabbix_port     = '10051',
-  $zabbix_node_num = '1',
+  $db_host          = 'localhost',
+  $db_port          = '0',
+  $db_name          = 'zabbix',
+  $db_user          = 'zabbix',
+  $db_password      = 'changeme',
+  $db_root_password = 'strongpassword',
+  $zabbix_host      = $::fqdn,
+  $node_type        = 'server',
+  $zabbix_port      = '10051',
+  $zabbix_node_num  = '1',
 ){
 
   # Add the necessary repo and update apt
@@ -69,7 +71,9 @@ class zabbixserver(
   }
 
   if $node_type != 'proxy' {
-    class{'mysql::server':}
+    class{'mysql::server':
+      root_password => $db_root_password,
+    }
     mysql::db{ $db_name :
       user     => $db_user,
       password => $db_password,
