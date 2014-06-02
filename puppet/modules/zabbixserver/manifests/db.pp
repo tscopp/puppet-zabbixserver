@@ -1,8 +1,11 @@
 class zabbixserver::db($db_name='zabbix',
                         $db_user='zabbix',
                         $db_password='changeme',
+                        $db_root_password='strongpassword',
                         $db_host='localhost'){
-  class{'mysql::server':}
+  class{'mysql::server':
+    root_password => $db_root_password,
+  }
   mysql::db{ $db_name :
     user     => $db_user,
     password => $db_password,
@@ -19,7 +22,7 @@ class zabbixserver::db($db_name='zabbix',
 }
 /*
 exec{'insert_schema':
-      command => "mysql -u root ${db_name} < /usr/share/zabbix-server-mysql/schema.sql",
+      command => "mysql -u root ${db_name} --password=${db_root_password} < /usr/share/zabbix-server-mysql/schema.sql",
       path    => '/usr/bin/',
       creates => '/tmp/schema.sql',
       require => [Exec['expand_zabbix_sql'],

@@ -12,14 +12,15 @@ After installing the module (either from here or the puppet forge) simply add th
 
 ```puppet
 class {zabbixserver:
-  db_host         => 'localhost
-  db_port         => '0'
-  db_name         => 'zabbix'
-  db_password     => 'changeme'
-  zabbix_host     => 'zabbix.school.edu'
-  node_type       => 'server'
-  zabbix_port     => '10051'
-  zabbix_node_num => '0'
+  db_host          => 'localhost',
+  db_port          => '0',
+  db_name          => 'zabbix',
+  db_password      => 'changeme',
+  db_root_password => '*changeme',
+  zabbix_host      => 'zabbix.school.edu',
+  node_type        => 'server',
+  zabbix_port      => '10051',
+  zabbix_node_num  => '0',
 }
 ```
 
